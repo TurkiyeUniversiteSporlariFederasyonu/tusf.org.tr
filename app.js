@@ -77,10 +77,10 @@ if (cluster.isMaster) {
     next();
   });
 
-  app.use('/', indexRouteController);
   app.use('/admin', adminRouteController);
   app.use('/announcements', announcementsRouteController);
   app.use('/image', imageRouteController);
+  app.use('/', indexRouteController);
 
   server.listen(PORT, () => {
     console.log(`Server is on port ${PORT} as Worker ${cluster.worker.id} running @ process ${cluster.worker.process.pid}`);
