@@ -1,0 +1,42 @@
+extends ../partials/header
+block main
+  .template-outer-wrapper
+    .template-content-wrapper
+      .template-header(style='border-color: var(--red)')
+        .template-header-text(style='background-color: var(--red)')= name
+      .template-content
+        each item in template
+          if item.type == 'image'
+            .template-image(style=`background-image: url(${item.content})`)
+          else if item.type == 'link'
+            a.template-link(href=item.url target='_blank')= item.content
+          else if item.type == 'table'
+            .template-table-wrapper
+              if item.header
+                .template-table-header-wrapper
+                  .template-table-header-key= item.header.key
+                  .template-table-header-value= item.header.value
+              .template-table-content-wrapper 
+                each key, i in item.keys
+                  .each-template-table-line
+                    if key.type == 'link'
+                      a.each-template-table-key.template-link(href=key.url target='_blank')= key.content
+                    else
+                      .each-template-table-key(class=`template-${key.type}`)= key.content
+                    if item.values[i].type == 'link'
+                      a.each-template-table-value.template-link(href=item.values[i].url target='_blank')= item.values[i].content
+                    else
+                      .each-template-table-value(class=`template-${item.values[i].type}`)= item.values[i].content
+          else
+            each part in item.content.split('\n')
+              div(class=`template-${item.type}`)= part
+    .template-announcements-wrapper
+      .template-header(style='border-color: var(--blue)')
+        .template-header-text(style='background-color: var(--blue)') Duyurular
+      .announcements-wrapper
+        each announcement in announcements
+          a.each-announcement-wrapper(href='/announcements?id=' + announcement._id.toString())
+            .each-announcement-image(style=`background-image: url(${announcement.image})`)
+            .each-announcement-info-wrapper
+              .each-announcement-title= announcement.title
+              .each-announcement-date= announcement.date

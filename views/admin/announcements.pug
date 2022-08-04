@@ -1,0 +1,13 @@
+extends ../partials/head
+block content
+  .all-wrapper
+    .announcements-header-wrapper
+      .announcements-title Duyurular
+      a.create-announcement-button(href='/admin/announcements/create') Yeni Duyuru Ekle
+    .announcements-content-wrapper
+      each announcement in announcements
+        .each-announcement-wrapper(id=announcement._id.toString())
+          .fas.fa-trash-alt.each-announcement-button.each-announcement-delete-button
+          a.fas.fa-cog.each-announcement-button.each-announcement-edit-button(href='/admin/announcements/edit?id=' + announcement._id)
+          .each-announcement-title= announcement.title
+          .each-announcement-date= announcement.date

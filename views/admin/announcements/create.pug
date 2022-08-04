@@ -1,0 +1,21 @@
+extends ../../partials/head
+block content
+  .new-announcement-form
+    .new-announcement-form-title Yeni Duyuru
+    .new-announcement-form-subtitle Eklediğiniz duyuruyu istediğiniz zaman güncelleyebilirsiniz. 
+    .announcement-inputs-outer-wrapper
+      .each-announcement-input-wrapper
+        .new-announcement-form-input-title.required-input Başlık
+        input.new-announcement-form-input#title-input(type='text' placeholder='Duyuru Başlığı')
+      .each-announcement-input-wrapper#image-input-wrapper
+        .new-announcement-form-input-title.required-input Resim
+        .image-input-outer-wrapper
+          label.choose-image-input-text
+            span Bilgisayarınızdan seçmek için tıklayın.
+            input.display-none.image-input(type="file" accept="image/*")
+    .new-announcement-form-input-title.required-input Metin
+    textarea.new-announcement-form-input.new-announcement-form-input-long#text-input(type='text' placeholder='Duyuru Metni')
+    .new-announcement-buttons-line
+      .new-announcement-back-button#new-announcement-back-button İptal
+      .new-announcement-create-button#new-announcement-create-button Ekle
+    .new-announcement-error#new-announcement-form-error

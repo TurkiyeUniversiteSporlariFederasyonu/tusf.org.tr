@@ -1,0 +1,94 @@
+.all-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.announcements-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding: 0 var(--page-padding);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow:  0 0 10px var(--border-color);
+}
+
+.announcements-title {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 20px;
+}
+.create-announcement-button {
+  height: 50px;
+  min-height: 50px;
+  padding: 0 15px;
+  background-color: var(--red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+.create-announcement-button:hover {
+  box-shadow:  0 0 10px var(--border-color); 
+}
+
+.announcements-content-wrapper {
+  padding: var(--page-padding);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.each-announcement-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: calc(var(--page-padding) / 2);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px var(--border-color);
+  padding: 0 calc(var(--page-padding) / 3);
+  height: 50px;
+  min-height: 50px;
+}
+.each-announcement-button {
+  text-decoration: none;
+  margin-right: 10px;
+  cursor: pointer;
+  opacity: 0.9;
+  font-size: 18px;
+}
+.each-announcement-button:hover {
+  opacity: 1;
+}
+.each-announcement-delete-button {
+  color: var(--red);
+}
+.each-announcement-edit-button {
+  color: var(--blue);
+}
+.each-announcement-title {
+  color: var(--black);
+  font-weight: 500;
+  font-size: 16px;
+  flex: 1;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.each-announcement-date {
+  margin-left: auto;
+  color: var(--light-black);
+  font-weight: 500;
+  font-size: 16px;
+}

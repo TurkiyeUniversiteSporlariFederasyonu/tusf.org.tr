@@ -1,0 +1,22 @@
+extends ../../partials/head
+block content
+  input.display-none#announcement(value=JSON.stringify(announcement))
+  .new-announcement-form
+    .new-announcement-form-title= announcement.title
+    .new-announcement-form-subtitle İstediğiniz bilgileri güncelleyip kaydetmek için 'Kaydet' tuşuna tıklayın
+    .announcement-inputs-outer-wrapper
+      .each-announcement-input-wrapper
+        .new-announcement-form-input-title.required-input Başlık
+        input.new-announcement-form-input#title-input(type='text' placeholder='Duyuru Başlığı' value=announcement.title)
+      .each-announcement-input-wrapper#image-input-wrapper
+        .new-announcement-form-input-title.required-input Resim
+        .image-input-outer-wrapper
+          .image-input-wrapper
+            img.image-input-wrapper-image(src=announcement.image)
+            i.delete-image-button.fas.fa-times
+    .new-announcement-form-input-title.required-input Metin
+    textarea.new-announcement-form-input.new-announcement-form-input-long#text-input(type='text' placeholder='Duyuru Metni')= announcement.text
+    .new-announcement-buttons-line
+      .new-announcement-back-button#new-announcement-back-button İptal
+      .new-announcement-create-button#new-announcement-create-button Kaydet
+    .new-announcement-error#new-announcement-form-error
