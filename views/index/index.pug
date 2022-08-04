@@ -120,22 +120,23 @@ block content
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/finspor.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/trt_spor.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/algan.png\')' target='_blank')
-        .announcement-wrapper
-          .announcements-title Duyurular ve Haberler
-          .announcement-details
-            .announcement-image(style=`background-image: url(${announcement.image})`)
-            .announcement-info-wrapper
-              .announcement-title= announcement.title
-              .announcement-date= announcement.date
-              .announcement-text= announcement.text
-              .announcement-buttons-wrapper
-                .announcement-details-button Devamını Oku...
-                .all-announcements-button
-                  .all-announcements-button-text Tüm Duyurular
-                  svg.all-announcements-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg')
-                    path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z' fill='#E13530')
-          .other-announcements-wrappers
-            .each-other-announcement
+        if announcement
+          .announcement-wrapper
+            .announcements-title Duyurular ve Haberler
+            .announcement-details
+              .announcement-image(style=`background-image: url(${announcement.image})`)
+              .announcement-info-wrapper
+                .announcement-title= announcement.title
+                .announcement-date= announcement.date
+                .announcement-text= announcement.text
+                .announcement-buttons-wrapper
+                  .announcement-details-button Devamını Oku...
+                  .all-announcements-button
+                    .all-announcements-button-text Tüm Duyurular
+                    svg.all-announcements-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg')
+                      path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z' fill='#E13530')
+            .other-announcements-wrappers
+              .each-other-announcement
         .number-titles-wrapper
           .each-number-title.highlighted-red 26 YIL
           .each-number-title.highlighted-blue 195 ÜNİVERSİTE
