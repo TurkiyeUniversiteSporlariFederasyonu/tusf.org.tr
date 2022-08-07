@@ -1,5 +1,6 @@
-.all-header-wrapper {
+.all-header-wrapper, .all-header-wrapper-responsive {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .start-page-wrapper {

@@ -27,6 +27,17 @@ block main
                       a.each-template-table-value.template-link(href=item.values[i].url target='_blank')= item.values[i].content
                     else
                       .each-template-table-value(class=`template-${item.values[i].type}`)= item.values[i].content
+          else if item.type == 'list'
+            each key, i in item.content
+              .each-template-list-line
+                if item.subtype == 'number'
+                  .each-template-list-number #{i+1}.
+                else if item.subtype == 'bullet'
+                  .each-template-list-bullet
+                if key.type == 'link'
+                  a.each-template-list-item.template-link(href=key.url target='_blank')= key.content
+                else
+                  .each-template-list-item(class=`template-${key.type}`)= key.content
           else
             each part in item.content.split('\n')
               div(class=`template-${item.type}`)= part
