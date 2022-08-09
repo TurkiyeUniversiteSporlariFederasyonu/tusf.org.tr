@@ -434,5 +434,58 @@
 }
 
 @media only screen and (max-width: 1100px) {
-  
+  :root {
+    --number-icon-height: 50px;
+    --number-text-font-size: 35px;
+  }
+  .each-number-icon {
+    margin-bottom: var(--small-distance);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .numbers-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .each-number-wrapper {
+    height: calc((100vw - (4 * var(--page-padding))) / 3);
+  }
+}
+@media only screen and (max-width: 700px) {
+  :root {
+    --number-icon-height: 50px;
+    --number-text-font-size: 35px;
+  }
+  .numbers-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  .each-number-wrapper {
+    height: calc((100vw - (3 * var(--page-padding))) / 2);
+  }
+}
+@media only screen and (max-width: 500px) {
+  :root {
+    --number-icon-height: 40px;
+    --number-text-font-size: 30px;
+  }
+  .each-number-info {
+    font-size: var(--text-font-size);
+  }
+}
+@media only screen and (max-width: 400px) {
+  :root {
+    --number-icon-height: 30px;
+    --number-text-font-size: 25px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  :root {
+    --number-icon-height: 50px;
+    --number-text-font-size: 35px;
+  }
+  .numbers-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .each-number-wrapper {
+    height: calc((100vw - (2 * var(--page-padding))));
+  }
 }
