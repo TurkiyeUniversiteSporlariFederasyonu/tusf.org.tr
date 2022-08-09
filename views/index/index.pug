@@ -106,14 +106,14 @@ block content
       .start-page-subtitle resmi ana sayfasına hoş geldiniz.
     .all-content-outer-wrapper
       .all-content-wrapper
-        .sponsor-wrapper
+        //- .sponsor-wrapper
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/thy.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/turkcell.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/spor_toto.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/finspor.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/trt_spor.png\')' target='_blank')
           a.each-sponsor(href='' style='background-image: url(\'/res/images/landing/sponsors/algan.png\')' target='_blank')
-        if announcement
+        //- if announcement
           .announcement-wrapper
             .announcements-title Duyurular ve Haberler
             .announcement-details
@@ -127,7 +127,7 @@ block content
                   .all-announcements-button
                     .all-announcements-button-text Tüm Duyurular
                     svg.all-announcements-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg')
-                      path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z' fill='#E13530')
+                      path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z' fill='var(--red)')
             .other-announcements-wrappers
               .each-other-announcement
         .number-titles-wrapper
@@ -175,9 +175,9 @@ block content
               path(d='M0 46C0 20.5922 20.5922 0 46 0C71.4078 0 92 20.5922 92 46C92 71.4078 71.4078 92 46 92C20.5922 92 0 71.4078 0 46ZM46 66.125C48.3898 66.125 50.3125 64.2023 50.3125 61.8125V50.3125H61.8125C64.2023 50.3125 66.125 48.3898 66.125 46C66.125 43.6102 64.2023 41.6875 61.8125 41.6875H50.3125V30.1875C50.3125 27.7977 48.3898 25.875 46 25.875C43.6102 25.875 41.6875 27.7977 41.6875 30.1875V41.6875H30.1875C27.7977 41.6875 25.875 43.6102 25.875 46C25.875 48.3898 27.7977 50.3125 30.1875 50.3125H41.6875V61.8125C41.6875 64.2023 43.6102 66.125 46 66.125Z' fill='var(--black)')
             .each-number-text 31747
             .each-number-info TOPLAM
-        .see-all-numbers-button
+        a.see-all-numbers-button(href='https://www.tusf.org/Default?p=d60f35e9-96a5-449e-80c7-63490c0f0956' target='_blank')
           .see-all-numbers-text Dönemsel Katılım Sayıları
-          svg(width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg')
+          svg.see-all-numbers-icon(width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg')
             path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z' fill='var(--blue)')
       .all-footer-wrapper
         .all-footer-inner-wrapper
