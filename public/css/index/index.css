@@ -10,6 +10,8 @@
   --anouncement-title-font-size: 37px;
   --anouncement-title-line-height: 45px;
   --announcement-image-height: 250px;
+  --other-announcement-height: 160px;
+  --other-announcement-width: 250px;
   --big-number-font-size: 55px;
   --number-icon-height: 60px;
   --number-text-font-size: 45px;
@@ -110,7 +112,7 @@
   height: 100%;
   width: 50%;
   min-width: 50%;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -200,6 +202,62 @@
   display: flex;
   overflow-x: scroll;
   margin-bottom: calc(2 * var(--page-padding));
+  width: 100vw;
+  padding: 0 var(--page-padding);
+  height: var(--other-announcement-height);
+  min-height: var(--other-announcement-height);
+}
+.each-other-announcement {
+  min-width: calc(max(var(--other-announcement-width), (100vw - (2 * var(--page-padding))) / 5 - (4 * var(--small-distance))));
+  width: calc(max(var(--other-announcement-width), (100vw - (2 * var(--page-padding))) / 5 - (4 * var(--small-distance))));
+  height: var(--other-announcement-height);
+  min-height: var(--other-announcement-height);
+  margin-right: var(--small-distance);
+  overflow: hidden;
+  cursor: pointer;
+}
+.each-other-announcement-background {
+  width: 100%;
+  height: var(--other-announcement-height);
+  min-height: var(--other-announcement-height);
+  background-size: cover;
+  background-position: center;
+}
+.each-other-announcement-background-hovered {
+  width: calc(100% + 20px) !important;
+  min-width: calc(100% + 20px) !important;
+  margin-left: -10px !important;
+  height: calc(var(--other-announcement-height) + 20px) !important;
+  min-height: calc(var(--other-announcement-height) + 20px) !important;
+  margin-top: -10px !important;
+}
+.each-other-announcement-info-wrapper {
+  margin-top: calc(-1 * var(--other-announcement-height));
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(1, 1, 1, 0.6));
+  display: flex;
+  flex-direction: column;
+  padding: var(--small-distance);
+}
+.each-other-announcement-title {
+  margin-top: auto;
+  color: var(--white);
+  font-weight: 700;
+  font-size: var(--text-font-size);
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.each-other-announcement-date {
+  margin-top: 2px;
+  color: var(--white);
+  font-weight: 500;
+  font-size: var(--small-text-font-size);
 }
 
 .number-titles-wrapper {

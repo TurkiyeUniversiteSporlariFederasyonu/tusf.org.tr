@@ -1,4 +1,4 @@
-const Announcement = require('../../models/announcement/Announcement');
+const Announcement = require('../../../models/announcement/Announcement');
 
 module.exports = (req, res) => {
   Announcement.findAnnouncementById(req.query.id, (err, announcement) => {

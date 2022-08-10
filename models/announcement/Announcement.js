@@ -4,7 +4,6 @@ const validator = require('validator');
 
 const Image = require('../image/Image');
 
-const DUPLICATED_UNIQUE_FIELD_ERROR_CODE = 11000;
 const MAX_DATABASE_TEXT_FIELD_LENGTH = 1e4;
 const MAX_DATABASE_LONG_TEXT_FIELD_LENGTH = 1e5;
 const MAX_ITEM_COUNT_PER_QUERY = 100;
@@ -93,6 +92,9 @@ AnnouncementSchema.statics.findAnnouncementsByFilters = function (data, callback
 
   const filters = {};
   const limit = data.limit && Number.isInteger(data.limit) && data.limit > 0 && data.limit < MAX_ITEM_COUNT_PER_QUERY ? data.limit : MAX_ITEM_COUNT_PER_QUERY;
+
+  if (data.nin_id_list && !data.nin_id_list.find(each => !validator.isMongoId(each.toString())))
+    filters._id = { $nin: data.nin_id_list.map(each => mongoose.Types.ObjectId(each.toString())) };
 
   if (data.title && typeof data.title == 'string' && data.title.trim().length)
     filters.title = data.title.trim();

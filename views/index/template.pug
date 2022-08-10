@@ -46,7 +46,7 @@ block main
         .template-header-text(style='background-color: var(--blue)') Duyurular
       .announcements-wrapper
         each announcement in announcements
-          a.each-announcement-wrapper(href='/announcements?id=' + announcement._id.toString())
+          a.each-announcement-wrapper(href='/announcements/details?id=' + announcement._id.toString())
             .each-announcement-image(style=`background-image: url(${announcement.image})`)
             .each-announcement-info-wrapper
               .each-announcement-title= announcement.title
