@@ -1,12 +1,10 @@
 :root {
   --announcement-width: 350px;
   --announcement-height: 75px;
-  --template-header-height: 40px;
   --table-key-width: 400px;
 }
 
 .template-outer-wrapper {
-  background-color: var(--black);
   width: 100%;
   height: fit-content;
   min-height: fit-content;
@@ -187,6 +185,8 @@
   min-height: fit-content;
   width: var(--announcement-width);
   min-width: var(--announcement-width);
+  max-height: calc(100vh - var(--header-height) - (2 * var(--page-padding)));
+  overflow-y: scroll;
 }
 .each-announcement-wrapper {
   display: flex;

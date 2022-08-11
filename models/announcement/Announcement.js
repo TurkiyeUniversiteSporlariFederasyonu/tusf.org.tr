@@ -92,9 +92,7 @@ AnnouncementSchema.statics.findAnnouncementsByFilters = function (data, callback
 
   const filters = {};
   const limit = data.limit && Number.isInteger(data.limit) && data.limit > 0 && data.limit < MAX_ITEM_COUNT_PER_QUERY ? data.limit : MAX_ITEM_COUNT_PER_QUERY;
-
-  if (data.nin_id_list && !data.nin_id_list.find(each => !validator.isMongoId(each.toString())))
-    filters._id = { $nin: data.nin_id_list.map(each => mongoose.Types.ObjectId(each.toString())) };
+  const skip = data.page && Number.isInteger(data.page) && data.page >= 0 ? data.page * limit : 0;
 
   if (data.title && typeof data.title == 'string' && data.title.trim().length)
     filters.title = data.title.trim();
@@ -104,6 +102,7 @@ AnnouncementSchema.statics.findAnnouncementsByFilters = function (data, callback
 
   Announcement
     .find(filters)
+    .skip(skip)
     .limit(limit)
     .sort({ _id: -1 })
     .then(announcements => callback(null, announcements))
@@ -189,6 +188,16 @@ AnnouncementSchema.statics.findAnnouncementByIdAndUpdateImage = function(id, dat
       });
     });
   });
-}
+};
+
+AnnouncementSchema.statics.getTotalAnnouncementCount = function (callback) {
+  const Announcement = this;
+
+  Announcement
+    .find({})
+    .countDocuments()
+    .then(count => callback(null, count))
+    .catch(err => callback(null, 'database_error'));
+};
 
 module.exports = mongoose.model('Announcement', AnnouncementSchema);

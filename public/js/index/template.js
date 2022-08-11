@@ -7,5 +7,5 @@ window.addEventListener('load', () => {
       announcementsWrapper.style.marginTop = event.target.scrollTop + 'px';
     else
       announcementsWrapper.style.marginTop = (contentWrapper.offsetHeight - announcementsWrapper.offsetHeight) + 'px';
-  })
-})
+  });
+});
