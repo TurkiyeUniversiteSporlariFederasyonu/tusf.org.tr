@@ -95,10 +95,16 @@ AnnouncementSchema.statics.findAnnouncementsByFilters = function (data, callback
   const skip = data.page && Number.isInteger(data.page) && data.page >= 0 ? data.page * limit : 0;
 
   if (data.title && typeof data.title == 'string' && data.title.trim().length)
-    filters.title = data.title.trim();
+    filters.title = {
+      $regex: data.title.trim(),
+      $options: 'ix'
+    };
 
   if (data.text && typeof data.text == 'string' && data.text.trim().length)
-    filters.text = data.text.trim();
+  filters.text = {
+    $regex: data.text.trim(),
+    $options: 'ix'
+  };
 
   Announcement
     .find(filters)

@@ -1,37 +1,39 @@
 extends ../partials/header
 block main
-  input.display-none#announcements(type='text' value=JSON.stringify(announcements))
+  input.display-none#current-page(type='text' value=JSON.stringify(current_page))
+  input.display-none#limit(type='text' value=JSON.stringify(limit))
   .announcements-outer-wrapper
     .announcements-content-wrapper
       .announcement-header
         .announcement-header-text Duyurular ve Haberler
-      .announcements-page-buttons-wrapper
-        if current_page && current_page > 0
-          a.previous-page-button(href=`/announcements?limit=${limit}&page=${current_page-1}${title ? '&title=' + title : ''}`)
-            svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
-            .previous-page-button-text Daha Yeni
-        else
-          .previous-page-button-not-allowed
-            svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
-            .previous-page-button-text Daha Yeni
-        .pages-wrapper
-          - for (let i = 0; i < (Math.floor(announcement_count / limit) + (announcement_count % limit ? 1 : 0)); i++)
-            if i == current_page
-              .each-page-button-selected= i+1
-            else
-              a.each-page-button(href=(href=`/announcements?limit=${limit}&page=${i}${title ? '&title=' + title : ''}`))= i+1
-        if (current_page + 1) * limit < announcement_count
-          a.next-page-button(href=`/announcements?limit=${limit}&page=${current_page+1}${title ? '&title=' + title : ''}`)
-            .next-page-button-text Daha Eski
-            svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
-        else
-          .next-page-button-not-allowed
-            .next-page-button-text Daha Eski
-            svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+      if announcements && announcements.length
+        .announcements-page-buttons-wrapper
+          if current_page && current_page > 0
+            a.previous-page-button(href=`/announcements?limit=${limit}&page=${current_page-1}${title ? '&title=' + title : ''}`)
+              svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+              .previous-page-button-text Daha Yeni
+          else
+            .previous-page-button-not-allowed
+              svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+              .previous-page-button-text Daha Yeni
+          .pages-wrapper
+            - for (let i = 0; i < (Math.floor(announcement_count / limit) + (announcement_count % limit ? 1 : 0)); i++)
+              if i == current_page
+                .each-page-button-selected= i+1
+              else
+                a.each-page-button(href=(href=`/announcements?limit=${limit}&page=${i}${title ? '&title=' + title : ''}`))= i+1
+          if (current_page + 1) * limit < announcement_count
+            a.next-page-button(href=`/announcements?limit=${limit}&page=${current_page+1}${title ? '&title=' + title : ''}`)
+              .next-page-button-text Daha Eski
+              svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+          else
+            .next-page-button-not-allowed
+              .next-page-button-text Daha Eski
+              svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
       .announcements-wrapper
         if announcements && announcements.length
           each announcement in announcements
@@ -44,35 +46,36 @@ block main
                 .each-announcement-text= announcement.text
         else
           .no-announcement-text Hiçbir duyuru bulunamadı
-      .announcements-page-buttons-wrapper
-        if current_page && current_page > 0
-          a.previous-page-button(href=`/announcements?limit=${limit}&page=${current_page-1}${title ? '&title=' + title : ''}`)
-            svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
-            .previous-page-button-text Daha Yeni
-        else
-          .previous-page-button-not-allowed
-            svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
-            .previous-page-button-text Daha Yeni
-        .pages-wrapper
-          - for (let i = 0; i < (Math.floor(announcement_count / limit) + (announcement_count % limit ? 1 : 0)); i++)
-            if i == current_page
-              .each-page-button-selected= i+1
-            else
-              a.each-page-button(href=(href=`/announcements?limit=${limit}&page=${i}${title ? '&title=' + title : ''}`))= i+1
-        if (current_page + 1) * limit < announcement_count
-          a.next-page-button(href=`/announcements?limit=${limit}&page=${current_page+1}${title ? '&title=' + title : ''}`)
-            .next-page-button-text Daha Eski
-            svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
-        else
-          .next-page-button-not-allowed
-            .next-page-button-text Daha Eski
-            svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
-              path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+      if announcements && announcements.length
+        .announcements-page-buttons-wrapper
+          if current_page && current_page > 0
+            a.previous-page-button(href=`/announcements?limit=${limit}&page=${current_page-1}${title ? '&title=' + title : ''}`)
+              svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+              .previous-page-button-text Daha Yeni
+          else
+            .previous-page-button-not-allowed
+              svg.previous-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+              .previous-page-button-text Daha Yeni
+          .pages-wrapper
+            - for (let i = 0; i < (Math.floor(announcement_count / limit) + (announcement_count % limit ? 1 : 0)); i++)
+              if i == current_page
+                .each-page-button-selected= i+1
+              else
+                a.each-page-button(href=(href=`/announcements?limit=${limit}&page=${i}${title ? '&title=' + title : ''}`))= i+1
+          if (current_page + 1) * limit < announcement_count
+            a.next-page-button(href=`/announcements?limit=${limit}&page=${current_page+1}${title ? '&title=' + title : ''}`)
+              .next-page-button-text Daha Eski
+              svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
+          else
+            .next-page-button-not-allowed
+              .next-page-button-text Daha Eski
+              svg.next-page-button-icon(width='26' height='26' viewBox='0 0 26 26' fill='var(--black)' xmlns='http://www.w3.org/2000/svg')
+                path(d='M25.4555 14.331L16.1694 25.0146C15.8096 25.4353 15.3336 25.6423 14.8577 25.6423C14.3818 25.6423 13.9071 25.4336 13.5449 25.0163C12.8194 24.1816 12.8194 22.8295 13.5449 21.9948L19.6633 14.9587H1.85713C0.831597 14.9587 0 14.0038 0 12.822C0 11.6401 0.831597 10.6852 1.85713 10.6852H19.6633L13.5461 3.64744C12.8206 2.81279 12.8206 1.46065 13.5461 0.625991C14.2715 -0.208664 15.4468 -0.208664 16.1723 0.625991L25.4584 11.3096C26.181 12.1476 26.181 13.4964 25.4555 14.331Z')
     .announcements-navigation-wrapper
-      //- .announcement-search-input-wrapper
-      //-   svg.announcement-search-input-button(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='var(--blue)')
-      //-     path(d='M416 208C416 253.9 401.1 296.3 375.1 330.7L502.6 457.4C515.1 469.9 515.1 490.1 502.6 502.6C490.1 515.1 469.9 515.1 457.4 502.6L330.7 375.1C296.3 401.1 253.9 416 208 416C93.12 416 0 322.9 0 208C0 93.12 93.12 0 208 0C322.9 0 416 93.12 416 208zM240.1 119C231.6 109.7 216.4 109.7 207 119C197.7 128.4 197.7 143.6 207 152.1L238.1 184H120C106.7 184 96 194.7 96 208C96 221.3 106.7 232 120 232H238.1L207 263C197.7 272.4 197.7 287.6 207 296.1C216.4 306.3 231.6 306.3 240.1 296.1L312.1 224.1C322.3 215.6 322.3 200.4 312.1 191L240.1 119z')
-      //-   input.announcement-search-input(type='text' placeholder='Duyuru Ara' autofocus)
+      .announcement-search-input-wrapper
+        svg.announcement-search-input-button(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='var(--blue)')
+          path(d='M416 208C416 253.9 401.1 296.3 375.1 330.7L502.6 457.4C515.1 469.9 515.1 490.1 502.6 502.6C490.1 515.1 469.9 515.1 457.4 502.6L330.7 375.1C296.3 401.1 253.9 416 208 416C93.12 416 0 322.9 0 208C0 93.12 93.12 0 208 0C322.9 0 416 93.12 416 208zM240.1 119C231.6 109.7 216.4 109.7 207 119C197.7 128.4 197.7 143.6 207 152.1L238.1 184H120C106.7 184 96 194.7 96 208C96 221.3 106.7 232 120 232H238.1L207 263C197.7 272.4 197.7 287.6 207 296.1C216.4 306.3 231.6 306.3 240.1 296.1L312.1 224.1C322.3 215.6 322.3 200.4 312.1 191L240.1 119z')
+        input.announcement-search-input(type='text' placeholder='Duyuru Ara' value=filter_title autofocus)

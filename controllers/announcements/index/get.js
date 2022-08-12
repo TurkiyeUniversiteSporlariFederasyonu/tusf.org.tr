@@ -25,7 +25,7 @@ module.exports = (req, res) => {
           }
         },
         announcement_count,
-        title: req.query.title && typeof req.query.title == 'string' && req.query.title.trim().length ? req.query.title.trim() : null,
+        filter_title: req.query.title && typeof req.query.title == 'string' && req.query.title.trim().length ? req.query.title.trim() : null,
         limit,
         current_page: page,
         announcements,

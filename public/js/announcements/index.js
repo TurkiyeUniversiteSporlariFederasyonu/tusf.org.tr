@@ -1,4 +1,10 @@
+let currentPage = null;
+let limit = null;
+
 window.addEventListener('load', () => {
+  currentPage = JSON.parse(document.getElementById('current-page').value);
+  limit = JSON.parse(document.getElementById('limit').value);
+
   const contentWrapper = document.querySelector('.announcements-outer-wrapper');
   const navigationWrapper = document.querySelector('.announcements-navigation-wrapper');
 
@@ -28,4 +34,24 @@ window.addEventListener('load', () => {
       lastHoveredItem.classList.remove('each-announcement-image-hovered');
     }
   });
+
+  document.addEventListener('click', event => {
+    if (ancestorWithClassName(event.target, 'announcement-search-input-button')) {
+      const search = document.querySelector('.announcement-search-input').value.trim();
+
+      if (!search || !search.length)
+        window.location = `/announcements?limit=${limit}&page=0`
+      else
+        window.location = `/announcements?limit=${limit}&page=0&title=${search}`;
+    }
+  });
+
+  document.querySelector('.announcement-search-input').addEventListener('keyup', event => {
+    if (event.key == 'Enter') {
+      if (!event.target.value || !event.target.value.length)
+        window.location = `/announcements?limit=${limit}&page=0`
+      else
+        window.location = `/announcements?limit=${limit}&page=0&title=${event.target.value}`; 
+    }
+  })
 });
