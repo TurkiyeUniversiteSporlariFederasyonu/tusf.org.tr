@@ -16,15 +16,35 @@ function updateSelectedAnnouncement(id) {
   document.querySelector('.announcement-details-button').href = '/announcements/details?id=' + announcement._id.toString();
 }
 
+function smoothScroll(element, amount) {
+  if (amount < 10)
+    return;
+
+  element.scrollBy(0, 10);
+
+  setTimeout(() => {
+    smoothScroll(element, amount - 10);
+  }, 5);
+}
+
 window.addEventListener('load', () => {
   announcements = JSON.parse(document.getElementById('announcements').value);
   selectedAnnouncementId = announcements[0]._id.toString();
 
   document.querySelector('.all-content-outer-wrapper').addEventListener('scroll', event => {
-    document.querySelector('.all-header-wrapper').style.backgroundColor = `rgba(137, 28, 29, ${Math.min(event.target.scrollTop, window.innerHeight) / window.innerHeight})`;
-    document.querySelector('.all-header-wrapper').style.boxShadow = `0 0 8px rgba(5, 5, 5, ${Math.min(event.target.scrollTop, window.innerHeight) / window.innerHeight * 0.4})`;
-    document.querySelector('.all-header-wrapper-responsive').style.backgroundColor = `rgba(137, 28, 29, ${Math.min(event.target.scrollTop, window.innerHeight) / window.innerHeight})`;
-    document.querySelector('.all-header-wrapper-responsive').style.boxShadow = `0 0 8px rgba(5, 5, 5, ${Math.min(event.target.scrollTop, window.innerHeight) / window.innerHeight * 0.4})`;
+    document.querySelector('.start-page-button').style.opacity = Math.max(0, 15 - event.target.scrollTop) / 15;
+    if (event.target.scrollTop > 15)
+      document.querySelector('.start-page-button').style.display = 'none';
+    else
+      document.querySelector('.start-page-button').style.display = 'flex';
+
+    const headerHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height').replace('px', ''));
+    const windowHeight = window.innerHeight - headerHeight;
+
+    document.querySelector('.all-header-wrapper').style.backgroundColor = `rgba(137, 28, 29, ${Math.min(event.target.scrollTop, windowHeight) / windowHeight})`;
+    document.querySelector('.all-header-wrapper').style.boxShadow = `0 0 8px rgba(5, 5, 5, ${Math.min(event.target.scrollTop, windowHeight) / windowHeight * 0.4})`;
+    document.querySelector('.all-header-wrapper-responsive').style.backgroundColor = `rgba(137, 28, 29, ${Math.min(event.target.scrollTop, windowHeight) / windowHeight})`;
+    document.querySelector('.all-header-wrapper-responsive').style.boxShadow = `0 0 8px rgba(5, 5, 5, ${Math.min(event.target.scrollTop, windowHeight) / windowHeight * 0.4})`;
   });
 
   document.addEventListener('mouseover', event => {
@@ -55,6 +75,11 @@ window.addEventListener('load', () => {
     if (ancestorWithClassName(event.target, 'each-other-announcement')) {
       const target = ancestorWithClassName(event.target, 'each-other-announcement');
       updateSelectedAnnouncement(target.id);
+    }
+
+    if (ancestorWithClassName(event.target, 'start-page-button')) {
+      const headerHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height').replace('px', ''));
+      smoothScroll(document.querySelector('.all-content-outer-wrapper'), window.innerHeight - headerHeight);
     }
   });
 });
