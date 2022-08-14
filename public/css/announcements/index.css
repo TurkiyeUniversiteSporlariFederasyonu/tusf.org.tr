@@ -276,3 +276,34 @@
 .announcement-search-input:focus {
   border-color: var(--blue);
 }
+
+@media only screen and (max-width: 1100px) {
+  .announcements-outer-wrapper {
+    flex-direction: column-reverse;
+  }
+  .announcements-content-wrapper {
+    margin-bottom: var(--page-padding);
+    width: 100%;
+  }
+  .announcements-navigation-wrapper {
+    margin-top: 0 !important;
+    width: auto;
+    margin-bottom: calc(var(--page-padding) / 2);
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .each-announcement-wrapper {
+    flex-direction: column;
+    height: fit-content;
+    min-height: fit-content;
+    margin-bottom: var(--page-padding);
+  }
+  .each-announcement-image {
+    width: 100%;
+    height: var(--announcement-height);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: calc(var(--page-padding) / 2);
+  }
+}
