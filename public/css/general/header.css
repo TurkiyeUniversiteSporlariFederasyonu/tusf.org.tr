@@ -1,4 +1,5 @@
 :root {
+  --old-site-redirect-button-wrapper-height: 30px;
   --header-logo-size: 60px;
   --header-button-height: 40px;
   --header-menu-width: 250px;
@@ -9,10 +10,35 @@
   --footer-item-title-width: 85px;
 }
 
-.all-wrapper {
+.old-site-redirect-button-wrapper {
+  height: var(--old-site-redirect-button-wrapper-height);
+  min-height: var(--old-site-redirect-button-wrapper-height);
   width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0 var(--page-padding);
+  background-color: var(--black);
+  position: fixed;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.old-site-redirect-button {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.old-site-redirect-button:hover {
+  text-decoration: underline;
+}
+
+.all-wrapper {
+  margin-top: var(--old-site-redirect-button-wrapper-height);
+  width: 100vw;
+  height: calc(100vh - var(--old-site-redirect-button-wrapper-height));
+  min-height: calc(100vh - var(--old-site-redirect-button-wrapper-height));
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -21,7 +47,7 @@
 .all-header-wrapper {
   position: fixed;
   z-index: 10;
-  top: 0;
+  top: var(--old-site-redirect-button-wrapper-height);
   left: 0;
   width: 100vw;
   height: var(--header-height);
@@ -36,7 +62,7 @@
 .all-header-wrapper-responsive {
   position: fixed;
   z-index: 10;
-  top: 0;
+  top: var(--old-site-redirect-button-wrapper-height);
   left: 0;
   width: 100vw;
   height: var(--header-height);
@@ -55,7 +81,7 @@
 }
 .all-header-responsive-menu-outer-wrapper {
   position: absolute;
-  top: var(--header-height);
+  top: calc(var(--header-height) + var(--old-site-redirect-button-wrapper-height));
   right: 0;
   height: calc(100vh - var(--header-height));
   width: 100vw;

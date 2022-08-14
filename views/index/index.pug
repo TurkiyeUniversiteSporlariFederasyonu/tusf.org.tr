@@ -1,6 +1,8 @@
 extends ../partials/head
 block content
   input.display-none#announcements(type='text' value=JSON.stringify(announcements))
+  .old-site-redirect-button-wrapper
+    a.old-site-redirect-button(href='https://www.tusf.org' target='_blank') ESKİ ANASAYFAYI YÜKLE
   .all-wrapper
     .all-header-wrapper
       a.header-logo(href='/')
