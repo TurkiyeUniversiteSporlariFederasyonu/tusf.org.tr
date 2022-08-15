@@ -2,6 +2,10 @@
   --announcement-width: 350px;
   --announcement-height: 75px;
   --table-key-width: 400px;
+  --grid-part-width: 270px;
+  --grid-part-height: 320px;
+  --grid-part-image-width: 200px;
+  --grid-part-image-height: 230px;
 }
 
 .template-outer-wrapper {
@@ -27,6 +31,7 @@
   height: var(--template-header-height);
   min-height: var(--template-header-height);
   border-bottom: var(--bold-border-width) solid var(--white);
+  margin-bottom: var(--page-padding);
 }
 .template-header-text {
   width: fit-content;
@@ -93,6 +98,7 @@
 .template-link:hover {
   text-decoration: underline;
 }
+
 .template-table-wrapper {
   display: flex;
   flex-direction: column;
@@ -151,6 +157,7 @@
   margin: 0 !important;
   font-size: var(--text-font-size) !important;
 }
+
 .each-template-list-line {
   display: flex;
   align-items: flex-start;
@@ -178,6 +185,59 @@
 .each-template-list-item {
   margin: 0 !important;
   font-size: var(--text-font-size) !important;
+}
+
+.template-grid {
+  width: 100%;
+  height: fit-content;
+  min-height: fit-content;
+  text-align: center;
+  margin-bottom: calc(var(--page-padding) - (2 * var(--small-distance)));
+}
+.each-template-grid-part {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: var(--grid-part-width);
+  min-width: var(--grid-part-width);
+  max-width: var(--grid-part-width);
+  height: var(--grid-part-height);
+  min-height: var(--grid-part-height);
+  max-height: var(--grid-part-height);
+  overflow: hidden;
+  margin: 0 var(--small-distance);
+  margin-bottom: calc(2 * var(--small-distance));
+  text-decoration: none;
+}
+.each-template-grid-image {
+  width: var(--grid-part-image-width);
+  height: var(--grid-part-image-height);
+  min-height: var(--grid-part-image-height);
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+  margin-bottom: var(--small-distance);
+}
+.each-template-grid-title {
+  color: var(--black);
+  font-size: var(--subtitle-font-size);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.each-template-grid-subtitle {
+  color: var(--light-black);
+  font-size: var(--text-font-size);
+  font-weight: 500;
+  text-align: center;
+}
+.each-template-grid-line {
+  margin-top: auto;
+  border: 3px solid var(--red);
+  width: 100%;
+  height: calc(2 * 3px + var(--border-width));
+  border-radius: 8px;
 }
 
 .template-announcements-wrapper {

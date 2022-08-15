@@ -38,6 +38,21 @@ block main
                   a.each-template-list-item.template-link(href=key.url target='_blank')= key.content
                 else
                   .each-template-list-item(class=`template-${key.type}`)= key.content
+          else if item.type == 'grid'
+            .template-grid
+              each part in item.content
+                if part.url
+                  a.each-template-grid-part(href=part.url target='_blank')
+                    .each-template-grid-image(style=`background-image: url(${part.image})`)
+                    .each-template-grid-title= part.title
+                    .each-template-grid-subtitle= part.subtitle
+                    .each-template-grid-line
+                else
+                  .each-template-grid-part
+                    .each-template-grid-image(style=`background-image: url(${part.image})`)
+                    .each-template-grid-title= part.title
+                    .each-template-grid-subtitle= part.subtitle
+                    .each-template-grid-line
           else
             each part in item.content.split('\n')
               div(class=`template-${item.type}`)= part

@@ -215,7 +215,111 @@ function getPageContent(url, callback) {
     directory_board: {
       name: 'Yönetim Kurulu',
       template: [
-
+        {
+          type: 'grid',
+          content: [
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/de6a20fb-c673-451a-b552-af15e040fd83637768880838116030.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/640b5372-8d51-4038-bfa0-103c66e72c4c..jpeg',
+              title: 'Prof. Dr. Mehmet Günay',
+              subtitle: 'Başkan'
+            }
+          ]
+        },
+        {
+          type: 'grid',
+          content: [
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/74a06e52-cab5-46c4-8abe-e4e1cb9f78fc637757633081340882.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/c81b2898-15f8-46bd-b454-736ac66d9ad3..png',
+              title: 'Doç. Dr. Serdar ELER',
+              subtitle: 'Asbaşkan / Başkan V.'
+            }
+          ]
+        },
+        {
+          type: 'grid',
+          content: [
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/845b2b9b-dbd6-4771-95b0-1de48ef1321a637753452003652824.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/5893aec8-2908-4f9a-b562-5cddbfba0a70..jpg',
+              title: 'Prof. Dr. Hürmüz KOÇ',
+              subtitle: 'Asbaşkan'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/912d3f63-7333-4c34-939e-73c2b684a8e6637753453010915723.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/5e8adb5d-6d91-4017-85ce-3ae2613b1675..jpg',
+              title: 'Prof. Dr. Adem KORKMAZ',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/56edf5db-03fe-4e99-82eb-786fbc09c331637753452679651676.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/2e9be592-3572-4515-8c27-3603a4f8a6ca..jpg',
+              title: 'Prof. Dr. Arif ÖZAYDIN',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/fab61e55-5b24-45ca-b8ea-84a431b3396f637769356035488686.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/98d3803b-ede1-40f3-9415-e4ef972c2637..jpg',
+              title: 'Prof. Dr. Mehmet GÜÇLÜ',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/09a27944-aaa7-466e-96e7-d4dadb98da9a637758493712935279.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/6b8909d4-a90b-4a3b-9073-69e83d8e5fca..png',
+              title: 'Prof. Dr. Mehmet Çağrı ÇETİN',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/e36a3370-4cd6-4a38-9791-10e2c469bb8a637769022909085149.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/049a6a91-a0e6-47a7-8a4f-89783c1c4ea3..jpeg',
+              title: 'Prof. Dr. Selahattin AKPINAR',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/7ae02737-7150-430d-a97e-982e1c38374a637753455264166278.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/954ec24b-356e-46b2-b292-53e8bfc86ed1..jpg',
+              title: 'Prof. Dr. Murat KALDIRIMCI',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/a4c5eadf-2df8-4de2-8be2-f4f82317b969637753455574458988.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/84c17515-9f7f-4432-b76e-c2cb4f6d4648..jpg',
+              title: 'Doç.Dr.Tuba BOZDOĞAN',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/2e2e935a-cac8-41f5-9570-217ade0aecbf637753456135196177.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/277e7f15-e155-498c-b372-20fe17541a94..jpg',
+              title: 'Mustafa DOĞRU',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/4540c393-fbcb-4b52-8282-1d519df5fd1e637753455867311468.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/7765754c-fee7-40e4-99d8-4765ae49a46f..JPG',
+              title: 'TANER KARABULUT',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/8422128c-2e33-4272-abdc-4aba2f05169f637753456473840453.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/559d2ad1-90a6-4221-956f-f4bf5fd25cdf..jpg',
+              title: 'İbrahim ERDOĞDU',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/f79bae37-173b-43b2-b1fd-772c7e0ee20f637753456711016882.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/9300a2de-ea7d-460e-9320-32fb402f31f8..jpg',
+              title: 'Hulusi YİĞİT',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            },
+            {
+              url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/ee9e049b-1ef7-4950-9b75-3b2a9fd18bbd637798333912690933.pdf',
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/5f1c4119-f3cd-4919-9d48-f24ab42eeb7c..png',
+              title: 'Hasan IŞIKTAŞ',
+              subtitle: 'Yönetim Kurulu Üyesi'
+            }
+          ]
+        }
       ]
     },
     rector_board: {
@@ -784,7 +888,31 @@ function getPageContent(url, callback) {
     coordinators: {
       name: 'Koordinatörlükler ',
       template: [
-        
+        {
+          type: 'grid',
+          content: [
+            {
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/bd5aed31-d714-451c-9da9-65f347493b28..jpg',
+              title: 'Celal Sami TÜFEKÇİ',
+              subtitle: 'Danışman'
+            },
+            {
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/13cc4dcd-92b1-4e3b-bbcc-4042bc54322f..jpg',
+              title: 'Prof. Dr. Erkut TUTKUN',
+              subtitle: 'Uluslararası Koordinatör'
+            },
+            {
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/64d7da77-4e88-412e-a511-517f662f14cc..png',
+              title: 'Müslüm GÜLHAN',
+              subtitle: 'Teknik Kurullar Koordinatörü'
+            },
+            {
+              image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/4fb9839d-6d4a-4f51-b3da-a8e3fce7a9d8..png',
+              title: 'Prof. Dr. Yücel OCAK',
+              subtitle: 'Eğitim Koordinatörü'
+            }
+          ]
+        }
       ]
     },
     audit_board: {
