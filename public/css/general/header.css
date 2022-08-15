@@ -251,7 +251,7 @@
 
 .footer-logo {
   background-image: url('/res/images/logo.png');
-  background-size: cover;
+  background-size: contain;
   width: var(--footer-logo-size);
   min-width: var(--footer-logo-size);
   height: var(--footer-logo-size);

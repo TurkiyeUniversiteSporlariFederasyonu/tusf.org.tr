@@ -126,6 +126,10 @@ block content
             .announcements-title Duyurular ve Haberler
             .announcement-details
               .announcement-image(style=`background-image: url(${announcement.image})`)
+                svg.announcement-to-left-button(width='13' height='22' viewBox='0 0 13 22' fill='var(--white)' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M0.314691 10.9586C0.314691 11.4213 0.491284 11.8842 0.844471 12.2369L9.88605 21.2784C10.5924 21.9848 11.7367 21.9848 12.4431 21.2784C13.1495 20.5721 13.1495 19.4277 12.4431 18.7214L4.67725 10.9586L12.4417 3.19416C13.1481 2.48779 13.1481 1.34346 12.4417 0.637089C11.7353 -0.0692846 10.591 -0.0692846 9.88464 0.637089L0.843059 9.67867C0.489872 10.0319 0.314691 10.4952 0.314691 10.9586Z')
+                svg.announcement-to-right-button(width='14' height='23' viewBox='0 0 14 23' fill='var(--white)' xmlns='http://www.w3.org/2000/svg')
+                  path(d='M13.083 11.4733C13.083 11.0106 12.9064 10.5476 12.5532 10.195L3.51166 1.15344C2.80528 0.447064 1.66096 0.447064 0.954585 1.15344C0.248211 1.85981 0.248211 3.00414 0.954585 3.71051L8.72045 11.4733L0.955997 19.2377C0.249624 19.9441 0.249624 21.0884 0.955997 21.7948C1.66237 22.5012 2.8067 22.5012 3.51307 21.7948L12.5546 12.7532C12.9078 12.4 13.083 11.9366 13.083 11.4733Z')
               .announcement-info-wrapper
                 .announcement-title= announcement.title
                 .announcement-date= announcement.date

@@ -1,3 +1,5 @@
+const ANNOUNCEMENT_SLIDE_PASS_TIME = 5000;
+
 let announcements = null;
 let selectedAnnouncementId = null;
 
@@ -14,6 +16,44 @@ function updateSelectedAnnouncement(id) {
   document.querySelector('.announcement-date').innerHTML = announcement.date;
   document.querySelector('.announcement-text').innerHTML = announcement.text;
   document.querySelector('.announcement-details-button').href = '/announcements/details?id=' + announcement._id.toString();
+}
+
+function slideAnnouncementsToRight() {
+  let nextAnnouncement = null;
+
+  for (let i = 0; i < announcements.length - 1; i++)
+    if (announcements[i]._id.toString() == selectedAnnouncementId.toString())
+      nextAnnouncement = announcements[i+1];
+
+  if (!nextAnnouncement)
+    return;
+
+  updateSelectedAnnouncement(nextAnnouncement._id);
+}
+
+function slideAnnouncementsToLeft() {
+  let prevAnnouncement = null;
+
+  for (let i = 1; i < announcements.length; i++)
+    if (announcements[i]._id.toString() == selectedAnnouncementId.toString())
+      prevAnnouncement = announcements[i-1];
+
+  if (!prevAnnouncement)
+    return;
+
+  updateSelectedAnnouncement(prevAnnouncement._id);
+}
+
+function slideAnnouncementsCircular() {
+  if (announcements[announcements.length - 1]._id.toString() == selectedAnnouncementId.toString()) {
+    updateSelectedAnnouncement(announcements[0]._id);
+  } else {
+    slideAnnouncementsToRight();
+  }
+
+  setTimeout(() => {
+    slideAnnouncementsCircular();
+  }, ANNOUNCEMENT_SLIDE_PASS_TIME);
 }
 
 function smoothScroll(element, amount) {
@@ -81,5 +121,17 @@ window.addEventListener('load', () => {
       const headerHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--header-height').replace('px', ''));
       smoothScroll(document.querySelector('.all-content-outer-wrapper'), window.innerHeight - headerHeight);
     }
+
+    if (event.target.classList.contains('announcement-to-left-button')) {
+      slideAnnouncementsToLeft();
+    }
+
+    if (event.target.classList.contains('announcement-to-right-button')) {
+      slideAnnouncementsToRight();
+    }
   });
+
+  setTimeout(() => {
+    slideAnnouncementsCircular();
+  }, ANNOUNCEMENT_SLIDE_PASS_TIME);
 });

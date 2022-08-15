@@ -132,6 +132,18 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--small-distance);
+}
+.announcement-to-left-button, .announcement-to-right-button {
+  opacity: 0.8;
+  cursor: pointer;
+  height: var(--subtitle-font-size);
+}
+.announcement-to-left-button:hover, .announcement-to-right-button:hover  {
+  opacity: 1;
 }
 .announcement-info-wrapper {
   height: fit-content;
