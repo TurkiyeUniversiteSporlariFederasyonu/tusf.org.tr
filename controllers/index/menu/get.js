@@ -998,6 +998,10 @@ function getPageContent(url, callback) {
             },
             {
               type: 'text',
+              content: 'Av. ŞAHİN Ömer Selçuk'
+            },
+            {
+              type: 'text',
               content: 'Av. ERDÖL Özcan'
             },
             {
@@ -1006,8 +1010,12 @@ function getPageContent(url, callback) {
             },
             {
               type: 'text',
-              content: 'Av.KILINÇ Seffan'
-            }
+              content: 'Av. KILINÇ Seffan'
+            },
+            {
+              type: 'text',
+              content: 'Av. ŞAHİN Elif Asena'
+            },
           ]
         }
       ]
@@ -1421,6 +1429,10 @@ function getPageContent(url, callback) {
           content: [
             {
               type: 'text',
+              content: 'AKYEL Yusuf'
+            },
+            {
+              type: 'text',
               content: 'TARHAN Murat'
             },
             {
@@ -1430,10 +1442,6 @@ function getPageContent(url, callback) {
             {
               type: 'text',
               content: 'AĞCA Murat'
-            },
-            {
-              type: 'text',
-              content: 'AKYEL Yusuf'
             },
             {
               type: 'text',
