@@ -59,7 +59,7 @@ function getPageContent(url, callback) {
         },
         {
           type: 'text',
-          content: '2005 yılında İzmir’ de yapılan Dünya Üniversiteler Yaz Oyunları ve 2011 yılında Erzurum’da yapılan Dünya Üniversiteler Kış Oyunları ile büyük organizasyonlara ev sahipliği yapan Federasyonumuz günümüzde 55 spor branşında faaliyet göstermekte ve yılda ortalama 146 ulusal spor organizasyonu yapmaktadır.'
+          content: '2005 yılında İzmir’ de yapılan Dünya Üniversiteler Yaz Oyunları ve 2011 yılında Erzurum’da yapılan Dünya Üniversiteler Kış Oyunları ile büyük organizasyonlara ev sahipliği yapan Federasyonumuz günümüzde 71 spor branşında faaliyet göstermekte ve yılda ortalama 166 ulusal spor organizasyonu yapmaktadır.'
         },
         {
           type: 'text',
