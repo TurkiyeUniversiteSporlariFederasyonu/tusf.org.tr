@@ -77,12 +77,16 @@ AnnouncementSchema.statics.createAnnouncement = function (data, callback) {
       date: moment().tz('Europe/Istanbul').format('DD[.]MM[.]YYYY[ - ]HH[.]mm')
     };
 
-    const newAnnouncement = new Announcement(newAnnouncementData);
+    Image.findImageByUrlAndSetAsUsed(image.url, err => {
+      if (err) return callback(err);
 
-    newAnnouncement.save((err, announcement) => {
-      if (err) return callback('database_error');
+      const newAnnouncement = new Announcement(newAnnouncementData);
 
-      return callback(null, announcement._id.toString());
+      newAnnouncement.save((err, announcement) => {
+        if (err) return callback('database_error');
+
+        return callback(null, announcement._id.toString());
+      });
     });
   });
 };
