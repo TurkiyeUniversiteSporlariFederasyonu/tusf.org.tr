@@ -112,6 +112,10 @@ window.addEventListener('load', () => {
   });
 
   document.addEventListener('click', event => {
+    if (event.target.classList.contains('popup-wrapper') || event.target.classList.contains('popup-close-button')) {
+      document.querySelector('.popup-wrapper').style.display = 'none';
+    }
+
     if (ancestorWithClassName(event.target, 'each-other-announcement')) {
       const target = ancestorWithClassName(event.target, 'each-other-announcement');
       updateSelectedAnnouncement(target.id);

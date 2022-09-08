@@ -17,6 +17,35 @@
   --number-text-font-size: 45px;
 }
 
+.popup-wrapper {
+  width: 100vw;
+  height: calc(100vh - var(--old-site-redirect-button-wrapper-height));
+  min-height: calc(100vh - var(--old-site-redirect-button-wrapper-height));
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: var(--old-site-redirect-button-wrapper-height);
+  left: 0;
+  z-index: 100;
+}
+.popup-close-button {
+  position: absolute;
+  top: calc(var(--old-site-redirect-button-wrapper-height) - 20px);
+  right: 30px;
+  cursor: pointer;
+  z-index: 101;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+}
+.popup {
+  width: calc(min(500px, 100vw - 2 * var(--page-padding)));
+  min-width: calc(min(500px, 100vw - 2 * var(--page-padding)));
+  height: calc((min(500px, 100vw - 2 * var(--page-padding))) * 1.25);
+}
+
 .all-header-wrapper, .all-header-wrapper-responsive {
   background-color: transparent;
   box-shadow: none;
