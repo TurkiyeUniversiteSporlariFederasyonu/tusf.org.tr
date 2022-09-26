@@ -285,7 +285,7 @@ function getPageContent(url, callback) {
             {
               url: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/a4c5eadf-2df8-4de2-8be2-f4f82317b969637753455574458988.pdf',
               image: 'https://www.tusf.org/Data/Sites/1/paylasilanDosyalar/84c17515-9f7f-4432-b76e-c2cb4f6d4648..jpg',
-              title: 'Doç.Dr.Tuba BOZDOĞAN',
+              title: 'Doç.Dr.Tuba KIZILET',
               subtitle: 'Yönetim Kurulu Üyesi'
             },
             {
