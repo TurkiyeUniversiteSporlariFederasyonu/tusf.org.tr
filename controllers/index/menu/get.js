@@ -1362,10 +1362,6 @@ function getPageContent(url, callback) {
             },
             {
               type: 'text',
-              content: 'Dr. BASTIK Canan'
-            },
-            {
-              type: 'text',
               content: 'Dr. BİNGÖL Hülya'
             },
             {
@@ -1403,10 +1399,6 @@ function getPageContent(url, callback) {
             {
               type: 'text',
               content: 'Dr. TÜRKSOY Ayşe'
-            },
-            {
-              type: 'text',
-              content: 'Dr. VATANSEVER Şerife'
             },
             {
               type: 'text',
