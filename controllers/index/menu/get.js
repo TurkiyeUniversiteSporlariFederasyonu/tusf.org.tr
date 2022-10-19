@@ -402,7 +402,7 @@ function getPageContent(url, callback) {
       ]
     },
     president_concey: {
-      name: 'Sağlık, Spor ve Spor Daire Başkanları Konseyi',
+      name: 'Sağlık, Kültür ve Spor Daire Başkanları Konseyi',
       template: [
         {
           type: 'title',
