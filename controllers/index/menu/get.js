@@ -1673,6 +1673,10 @@ function getPageContent(url, callback) {
             {
               type: 'text',
               content: 'ERKENELİ Ramazan'
+            },
+            {
+              type: 'text',
+              content: 'ALPARSLAN Ali Murat'
             }
           ]
         }
